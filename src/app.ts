@@ -4,6 +4,7 @@ import cors from 'cors';
 import notFound from './middlewares/notFound';
 import httpStatus from 'http-status';
 import globalErrorHandler from './middlewares/globalErrorHandler';
+import router from './routes';
 
 const app: Application = express();
 
@@ -12,7 +13,7 @@ app.use(cookieParser());
 
 app.use(cors({ origin: ['http://localhost:5173'], credentials: true }));
 
-// app.use('/api/v1', router);
+app.use('/api/v1', router);
 
 app.get('/', (req, res) => {
   res.send('Sever for ecommerce service');

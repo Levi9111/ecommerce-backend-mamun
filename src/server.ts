@@ -1,5 +1,5 @@
 import { Server } from 'http';
-import { connect } from 'mongoose';
+import { connect, connection } from 'mongoose';
 import config from './config';
 import app from './app';
 
@@ -7,7 +7,9 @@ let server: Server;
 
 async function main() {
   try {
-    await connect(config.database_url as string);
+    const connectionToDatabase = await connect(config.database_url as string);
+
+    if (connectionToDatabase) console.log(`Server connected to database`);
 
     server = app.listen(config.port, () => {
       console.log(`ECommerce server listening on ${config.port}`);
