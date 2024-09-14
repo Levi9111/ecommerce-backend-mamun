@@ -7,8 +7,8 @@ const productValidationSchema = z.object({
         .string({
           required_error: 'Product name is required',
         })
-        .max(18, {
-          message: 'Product name must be at least 18 characters',
+        .max(30, {
+          message: 'Product name must be at least 30 characters',
         }),
 
       description: z.string({
@@ -40,8 +40,8 @@ const updateProductValidationSchema = z.object({
     product: z.object({
       name: z
         .string()
-        .max(18, {
-          message: 'Product name must be at most 18 characters',
+        .max(30, {
+          message: 'Product name must be at most 30 characters',
         })
         .optional(),
 
