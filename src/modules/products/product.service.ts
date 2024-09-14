@@ -15,6 +15,7 @@ const getAllProductsFromDB = async (query: Record<string, unknown>) => {
     .fields();
 
   const result = await productQuery.modelQuery;
+  console.log(result.length);
   return result;
 };
 
